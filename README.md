@@ -49,6 +49,7 @@ Add the following cron jobs
 50 5 * * * /root/cronjobs/yt-playlist-downloader/playlist-script-name-here.sh
 ```
 This setup will run the download script at 12:05 AM every day and attempt to kill the download process at 5:50 AM every day.
-
+### Video Link:
+https://youtu.be/ngaNmntbmF4
 
 
