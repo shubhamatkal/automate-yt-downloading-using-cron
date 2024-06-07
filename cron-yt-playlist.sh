@@ -33,12 +33,9 @@ if ! nmcli -t -f WIFI g | grep -q 'enabled'; then
     fi
 fi
 
-# Prevent sleep mode
-#systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
-
 # Execute download script
-bash "$SCRIPT_DIR/playlist-downloader.sh" 2>>"$CRON_ERROR_LOG"
-
-# Re-enable sleep mode
-#systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+bash "$SCRIPT_DIR/playlist-downloader.sh" 2>>
+>(while read -r line; do echo "$(date): $line"; done >> "$CRON_ERROR_LOG")
+#shutdown after completion
+shutdown now
 
