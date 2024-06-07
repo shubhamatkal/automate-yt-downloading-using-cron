@@ -37,6 +37,7 @@ if [[ -s "$JSON_FILE" ]]; then
     for URL in $PLAYLIST_URLS; do
         download_playlist "$URL"
     done
+    echo "$(date): Playlist successfully downloaded." >>"$ERROR_FILE"
 else
     echo "$(date): JSON file is empty or does not exist." >>"$ERROR_FILE"
 fi
